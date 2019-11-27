@@ -23,15 +23,23 @@ const homerSimpson = new Student("Homer Simpson",2014,122,true,"chunkylover53@ao
 
 let myStudents = [peterParker,enderWiggin,homerSimpson];
 
+
 const studentContainer = document.querySelector('.students');
 
 function render(myStudents) {
   
-  myStudents.forEach( function (element) {
-    const student = document.createElement('p');
+  myStudents.forEach( function (element,index) {
+    
+    // creates card
+    const card = document.createElement('div');
+    card.className = "card";
+    studentContainer.appendChild(card);
+
+    // appends each student to created card
+    const student = document.createElement('div');
     student.className = "student";
     student.innerText = element.name;
-    studentContainer.appendChild(student);
+    card.appendChild(student);
   });
 };
 
