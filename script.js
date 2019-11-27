@@ -1,41 +1,38 @@
-function Book(title,author,pages,read) {
-    this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = function() {
-    if (read) {
-      return "already read"
-    } else {
-      "not read yet"
-    }
+function Student(name,admitYear,creditsEarned,concDeclared,email) {
+  this.name = name
+  this.admitYear = admitYear
+  this.creditsEarned = creditsEarned
+  this.concDeclared = function() {
+    return (concDeclared ? "Already declared" : "Not yet declared" );
   }
+  this.email = email
   this.info = function() {
-    return `${title} by ${author}, ${pages} pages, ${this.read()}.`
+    return `Name: ${name}, Admit Year: ${admitYear}, Credits Earned: ${creditsEarned}, Concentration: ${this.concDeclared()}.`
   }
 }
 
-function addBookToLibrary() {
+function addStudent() {
   // do stuff here
 }
 
-const jurassicPark = new Book("Jurassic Park", "Michael Crichton",466,true)
+const peterParker = new Student("Peter Parker", 2018, 17, false, "pp@aol.com")
 
-const endersGame = new Book("Ender's Game","Orson Scott Card", 264,true)
+const enderWiggin = new Student("Ender Wiggin", 2015, 45,true,"pwiggin@hotmail.com")
 
-const threeBodyProblem = new Book("The Three-Body Problem","Cixin Liu",400,false)
+const homerSimpson = new Student("Homer Simpson",2014,122,true,"chunkylover53@aol.com")
 
-let myLibrary = [jurassicPark,endersGame,threeBodyProblem];
+let myStudents = [peterParker,enderWiggin,homerSimpson];
 
-const bookContainer = document.querySelector('.books');
+const studentContainer = document.querySelector('.students');
 
-function render(myLibrary) {
+function render(myStudents) {
   
-  myLibrary.forEach( function (element) {
-    const book = document.createElement('p');
-    book.className = "book";
-    book.innerText = element.title;
-    bookContainer.appendChild(book);
+  myStudents.forEach( function (element) {
+    const student = document.createElement('p');
+    student.className = "student";
+    student.innerText = element.name;
+    studentContainer.appendChild(student);
   });
 };
 
-render(myLibrary);
+render(myStudents);
