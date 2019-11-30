@@ -1,3 +1,10 @@
+function createButton() {
+  const button = document.createElement('button');
+  button.className = "button";
+  button.innerText = "Add Student";
+  studentContainer.appendChild(button);
+}
+
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
   this.name = name
   this.admitYear = admitYear
@@ -24,6 +31,9 @@ let myStudents = [peterParker,enderWiggin,homerSimpson];
 const studentContainer = document.querySelector('.students');
 
 function render(myStudents) {
+
+  studentContainer.innerHTML = '';
+  createButton();
   
   myStudents.forEach( function (element) {
     
