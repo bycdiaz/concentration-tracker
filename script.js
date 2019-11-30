@@ -16,19 +16,16 @@ function addStudent() {
 }
 
 const peterParker = new Student("Peter Parker", 2018, 17, false, "pp@aol.com")
-
 const enderWiggin = new Student("Ender Wiggin", 2015, 45,true,"pwiggin@hotmail.com")
-
 const homerSimpson = new Student("Homer Simpson",2014,122,true,"chunkylover53@aol.com")
 
 let myStudents = [peterParker,enderWiggin,homerSimpson];
-
 
 const studentContainer = document.querySelector('.students');
 
 function render(myStudents) {
   
-  myStudents.forEach( function (element,index) {
+  myStudents.forEach( function (element) {
     
     // creates card
     const card = document.createElement('div');
