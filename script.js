@@ -58,6 +58,12 @@ function render(myStudents) {
     concDeclared.className = "student-info";
     concDeclared.innerText = element.concDeclared();
     student.appendChild(concDeclared);
+
+    const email = document.createElement('a');
+    email.className = "student-info";
+    email.href = `mailto:${element.email}`
+    email.innerText = element.email;
+    student.appendChild(email);
   });
 };
 
