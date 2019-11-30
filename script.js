@@ -17,10 +17,33 @@ function createButton() {
 }
 
 function createForm() {
+
+  // creates form
   const form = document.createElement('form');
   form.className = "form";
-  
   studentContainer.appendChild(form);
+
+  // creates form elements
+
+  // name label
+  const nameLabel = document.createElement("label");
+  nameLabel.setAttribute("for","name");
+  nameLabel.innerText = "Name:"
+  form.appendChild(nameLabel);
+
+  // name input
+  const name = document.createElement('input');
+  name.className = 'form-element';
+  name.id = "name";
+  name.type = "text"
+  name.name = "name"
+  form.appendChild(name);
+
+  // submit button
+  const submit = document.createElement('input');
+  submit.type = "submit";
+  submit.value = "Submit";
+  form.appendChild(submit);
 }
 
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
