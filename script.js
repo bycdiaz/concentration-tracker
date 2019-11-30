@@ -35,8 +35,29 @@ function render(myStudents) {
     // appends each student to created card
     const student = document.createElement('div');
     student.className = "student";
-    student.innerText = element.name;
     card.appendChild(student);
+
+    // appends student info to each card
+
+    const studentName = document.createElement('p');
+    studentName.className = "student-info";
+    studentName.innerText = element.name;
+    student.appendChild(studentName);
+
+    const admitYear = document.createElement('p')
+    admitYear.className = "student-info";
+    admitYear.innerText = element.admitYear;
+    student.appendChild(admitYear);
+
+    const creditsEarned = document.createElement('p');
+    creditsEarned.className = "student-info";
+    creditsEarned.innerText = element.creditsEarned;
+    student.appendChild(creditsEarned);
+
+    const concDeclared = document.createElement('p');
+    concDeclared.className = "student-info";
+    concDeclared.innerText = element.concDeclared();
+    student.appendChild(concDeclared);
   });
 };
 
