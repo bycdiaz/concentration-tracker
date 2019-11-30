@@ -41,22 +41,22 @@ function render(myStudents) {
 
     const studentName = document.createElement('p');
     studentName.className = "student-info";
-    studentName.innerText = element.name;
+    studentName.innerText = `Name: ${element.name}`;
     student.appendChild(studentName);
 
     const admitYear = document.createElement('p')
     admitYear.className = "student-info";
-    admitYear.innerText = element.admitYear;
+    admitYear.innerText = `Admit Year: ${element.admitYear}`;
     student.appendChild(admitYear);
 
     const creditsEarned = document.createElement('p');
     creditsEarned.className = "student-info";
-    creditsEarned.innerText = element.creditsEarned;
+    creditsEarned.innerText = `Credits Earned: ${element.creditsEarned}`;
     student.appendChild(creditsEarned);
 
     const concDeclared = document.createElement('p');
     concDeclared.className = "student-info";
-    concDeclared.innerText = element.concDeclared();
+    concDeclared.innerText = `Concentration Declared? ${element.concDeclared()}`;
     student.appendChild(concDeclared);
 
     const email = document.createElement('a');
