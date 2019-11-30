@@ -1,8 +1,26 @@
+const studentContainer = document.querySelector('.students');
+
+const peterParker = new Student("Peter Parker", 2018, 17, false, "pp@aol.com")
+const enderWiggin = new Student("Ender Wiggin", 2015, 45,true,"pwiggin@hotmail.com")
+const homerSimpson = new Student("Homer Simpson",2014,122,true,"chunkylover53@aol.com")
+
+let myStudents = [peterParker,enderWiggin,homerSimpson];
+
 function createButton() {
   const button = document.createElement('button');
   button.className = "button";
   button.innerText = "Add Student";
+  button.addEventListener('click', () => {
+    createForm();
+  })
   studentContainer.appendChild(button);
+}
+
+function createForm() {
+  const form = document.createElement('form');
+  form.className = "form";
+  
+  studentContainer.appendChild(form);
 }
 
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
@@ -21,14 +39,6 @@ function Student(name,admitYear,creditsEarned,concDeclared,email) {
 function addStudent() {
   // do stuff here
 }
-
-const peterParker = new Student("Peter Parker", 2018, 17, false, "pp@aol.com")
-const enderWiggin = new Student("Ender Wiggin", 2015, 45,true,"pwiggin@hotmail.com")
-const homerSimpson = new Student("Homer Simpson",2014,122,true,"chunkylover53@aol.com")
-
-let myStudents = [peterParker,enderWiggin,homerSimpson];
-
-const studentContainer = document.querySelector('.students');
 
 function render(myStudents) {
 
