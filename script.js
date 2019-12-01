@@ -1,19 +1,59 @@
 const studentContainer = document.querySelector('.students');
 
-const peterParker = new Student("Peter Parker", 2018, 17, false, "pp@aol.com")
-const enderWiggin = new Student("Ender Wiggin", 2015, 45,true,"pwiggin@hotmail.com")
-const homerSimpson = new Student("Homer Simpson",2014,122,true,"chunkylover53@aol.com")
+const peterParker = new Student("Peter Parker", 2018, 17, "yes", "pp@aol.com")
+const enderWiggin = new Student("Ender Wiggin", 2015, 45,"yes","pwiggin@hotmail.com")
+const homerSimpson = new Student("Homer Simpson",2014,122,"no","chunkylover53@aol.com")
 
 let myStudents = [peterParker,enderWiggin,homerSimpson];
+
+function Student(name,admitYear,creditsEarned,concDeclared,email) {
+  this.name = name
+  this.admitYear = parseInt(admitYear,10)
+  this.creditsEarned = parseInt(creditsEarned,10)
+  this.concDeclared = function() {
+    if (concDeclared === "yes") {
+      return "Already declared";
+    } else {
+      return "Not yet declared";
+    }
+  }
+  // this.concDeclared = function() {
+  //   return (concDeclared ? "Already declared" : "Not yet declared" );
+  // }
+  this.email = email
+  this.info = function() {
+    return `Name: ${name}, Admit Year: ${admitYear}, Credits Earned: ${creditsEarned}, Concentration: ${this.concDeclared()}.`
+  }
+}
 
 function createButton() {
   const button = document.createElement('button');
   button.className = "button";
-  button.innerText = "Add Student";
+  button.innerText = "New Student";
   button.addEventListener('click', () => {
-    createForm();
+    // toggles view of form
+    let formView = document.getElementById("form");
+    if (formView.style.display === "none") {
+      formView.style.display = "block";
+    } else {
+      formView.style.display = "none";
+    }
   })
   studentContainer.appendChild(button);
+}
+
+function addStudent() {
+
+  let form = document.getElementById('form');
+  form.onsubmit = () => {
+    let newStudent = new Student(form.elements.name.value, form.elements.admitYear.value, form.elements.creditsEarned.value, form.elements.concentrationDeclared.value, form.elements.email.value);
+    
+    console.log(newStudent);
+    alert(newStudent);
+
+    myStudents.push(newStudent);
+  }
+
 }
 
 function createForm() {
@@ -21,6 +61,7 @@ function createForm() {
   // creates form
   const form = document.createElement('form');
   form.className = "form";
+  form.id = "form"
   studentContainer.appendChild(form);
 
   // creates form elements
@@ -93,31 +134,18 @@ function createForm() {
   // submit button
   const submit = document.createElement('input');
   submit.type = "submit";
-  submit.value = "Submit";
+  submit.value = "Add Student";
+  submit.addEventListener('click', () => {
+    addStudent();
+  })
   form.appendChild(submit);
-}
-
-function Student(name,admitYear,creditsEarned,concDeclared,email) {
-  this.name = name
-  this.admitYear = admitYear
-  this.creditsEarned = creditsEarned
-  this.concDeclared = function() {
-    return (concDeclared ? "Already declared" : "Not yet declared" );
-  }
-  this.email = email
-  this.info = function() {
-    return `Name: ${name}, Admit Year: ${admitYear}, Credits Earned: ${creditsEarned}, Concentration: ${this.concDeclared()}.`
-  }
-}
-
-function addStudent() {
-  // do stuff here
 }
 
 function render(myStudents) {
 
   studentContainer.innerHTML = '';
   createButton();
+  createForm();
   
   myStudents.forEach( function (element) {
     

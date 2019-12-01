@@ -16,3 +16,7 @@
 .student {
   padding: 2px 16px;
 }
+
+#form {
+  display: none;
+}
