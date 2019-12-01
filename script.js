@@ -10,20 +10,8 @@ function Student(name,admitYear,creditsEarned,concDeclared,email) {
   this.name = name
   this.admitYear = parseInt(admitYear,10)
   this.creditsEarned = parseInt(creditsEarned,10)
-  this.concDeclared = function() {
-    if (concDeclared === "yes") {
-      return "Already declared";
-    } else {
-      return "Not yet declared";
-    }
-  }
-  // this.concDeclared = function() {
-  //   return (concDeclared ? "Already declared" : "Not yet declared" );
-  // }
+  this.concDeclared = concDeclared
   this.email = email
-  this.info = function() {
-    return `Name: ${name}, Admit Year: ${admitYear}, Credits Earned: ${creditsEarned}, Concentration: ${this.concDeclared()}.`
-  }
 }
 
 function createButton() {
@@ -33,10 +21,10 @@ function createButton() {
   button.addEventListener('click', () => {
     // toggles view of form
     let formView = document.getElementById("form");
-    if (formView.style.display === "none") {
-      formView.style.display = "block";
-    } else {
+    if (formView.style.display === "block") {
       formView.style.display = "none";
+    } else {
+      formView.style.display = "block";
     }
   })
   studentContainer.appendChild(button);
@@ -178,7 +166,7 @@ function render(myStudents) {
 
     const concDeclared = document.createElement('p');
     concDeclared.className = "student-info";
-    concDeclared.innerText = `Concentration Declared? ${element.concDeclared()}`;
+    concDeclared.innerText = `Concentration Declared? ${element.concDeclared}`;
     student.appendChild(concDeclared);
 
     const email = document.createElement('a');
