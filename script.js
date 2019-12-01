@@ -36,8 +36,59 @@ function createForm() {
   name.className = 'form-element';
   name.id = "name";
   name.type = "text"
-  name.name = "name"
   form.appendChild(name);
+
+  // admit year label
+  const admitYearLabel = document.createElement("label");
+  admitYearLabel.setAttribute("for","admitYear");
+  admitYearLabel.innerText = "Admit Year:"
+  form.appendChild(admitYearLabel);
+
+  // admit year input
+  const admitYear = document.createElement('input');
+  admitYear.className = 'form-element';
+  admitYear.id = "admitYear";
+  admitYear.type = "text"
+  form.appendChild(admitYear);
+
+  // credits earned label
+  const creditsEarnedLabel = document.createElement("label");
+  creditsEarnedLabel.setAttribute("for","creditsEarned");
+  creditsEarnedLabel.innerText = "Credits Earned:"
+  form.appendChild(creditsEarnedLabel);
+
+  // credits earned input
+  const creditsEarned = document.createElement('input');
+  creditsEarned.className = 'form-element';
+  creditsEarned.id = "creditsEarned";
+  creditsEarned.type = "text"
+  form.appendChild(creditsEarned);
+
+  // concentration declared label
+  const concentrationDeclaredLabel = document.createElement("label");
+  concentrationDeclaredLabel.setAttribute("for","concentrationDeclared");
+  concentrationDeclaredLabel.innerText = "Concentration Declared:"
+  form.appendChild(concentrationDeclaredLabel);
+
+  // concentration declared input
+  const concentrationDeclared = document.createElement('input');
+  concentrationDeclared.className = 'form-element';
+  concentrationDeclared.id = "concentrationDeclared";
+  concentrationDeclared.type = "text"
+  form.appendChild(concentrationDeclared);
+
+  // email label
+  const emailLabel = document.createElement("label");
+  emailLabel.setAttribute("for","email");
+  emailLabel.innerText = "Email:"
+  form.appendChild(emailLabel);
+
+  // email input
+  const email = document.createElement('input');
+  email.className = 'form-element';
+  email.id = "email";
+  email.type = "text"
+  form.appendChild(email);
 
   // submit button
   const submit = document.createElement('input');
