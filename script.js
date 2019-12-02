@@ -1,11 +1,11 @@
 const studentContainer = document.querySelector('.students');
 
 // sample students
-// const peterParker = new Student("Peter Parker", 2018, 17, "yes", "pp@aol.com")
-// const enderWiggin = new Student("Ender Wiggin", 2015, 45,"yes","pwiggin@hotmail.com")
-// const homerSimpson = new Student("Homer Simpson",2014,122,"no","chunkylover53@aol.com")
+const peterParker = new Student("Peter Parker", 2018, 17, "yes", "pp@aol.com")
+const enderWiggin = new Student("Ender Wiggin", 2015, 45,"yes","pwiggin@hotmail.com")
+const homerSimpson = new Student("Homer Simpson",2014,122,"no","chunkylover53@aol.com")
 
-let myStudents = [];
+let myStudents = [peterParker, enderWiggin, homerSimpson];
 
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
   this.name = name
@@ -145,6 +145,7 @@ function render(myStudents) {
     // appends each student to created card
     const student = document.createElement('div');
     student.className = "student";
+    student.id = `${element.email}`
     card.appendChild(student);
 
     // appends student info to each card
@@ -174,6 +175,16 @@ function render(myStudents) {
     email.href = `mailto:${element.email}`
     email.innerText = element.email;
     student.appendChild(email);
+
+    // delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.className = "button";
+    deleteButton.id = "delete"
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener('click', () => {
+      student.innerHTML = '';
+    })
+    student.appendChild(deleteButton);
   });
 };
 
