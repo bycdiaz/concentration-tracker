@@ -102,7 +102,15 @@ function createForm() {
   const concentrationDeclared = document.createElement('input');
   concentrationDeclared.className = 'form-element';
   concentrationDeclared.id = "concentrationDeclared";
-  concentrationDeclared.type = "text"
+  concentrationDeclared.type = "button"
+  concentrationDeclared.value = "true"
+  concentrationDeclared.addEventListener('click', () => {
+    if (concentrationDeclared.value === "true") {
+      concentrationDeclared.value = "false"
+    } else {
+      concentrationDeclared.value = "true"
+    }
+  })
   form.appendChild(concentrationDeclared);
 
   // email label
