@@ -1,9 +1,9 @@
 const studentContainer = document.querySelector('.students');
 
 // sample students
-const peterParker = new Student("Peter Parker", 2018, 17, "yes", "pp@aol.com")
-const enderWiggin = new Student("Ender Wiggin", 2015, 45,"yes","pwiggin@hotmail.com")
-const homerSimpson = new Student("Homer Simpson",2014,122,"no","chunkylover53@aol.com")
+const peterParker = new Student("Peter Parker",2018,17,true,"pp@aol.com")
+const enderWiggin = new Student("Ender Wiggin",2015,45,false,"pwiggin@hotmail.com")
+const homerSimpson = new Student("Homer Simpson",2014,122,false,"chunkylover53@aol.com")
 
 let myStudents = [peterParker, enderWiggin, homerSimpson];
 
@@ -11,7 +11,7 @@ function Student(name,admitYear,creditsEarned,concDeclared,email) {
   this.name = name
   this.admitYear = parseInt(admitYear,10)
   this.creditsEarned = parseInt(creditsEarned,10)
-  this.concDeclared = concDeclared
+  this.concDeclared = concDeclared.toString()  
   this.email = email
 }
 
@@ -167,8 +167,20 @@ function render(myStudents) {
 
     const concDeclared = document.createElement('p');
     concDeclared.className = "student-info";
-    concDeclared.innerText = `Concentration Declared? ${element.concDeclared}`;
+    concDeclared.innerText = "Concentration Declared?";
     student.appendChild(concDeclared);
+
+    const concButton = document.createElement('button');
+    concButton.className = "button";
+    concButton.innerText = element.concDeclared;
+    concButton.addEventListener('click', () => {
+      if (concButton.innerText === "true") {
+        concButton.innerText = "false"
+      } else {
+        concButton.innerText = "true"
+      }
+    })
+    student.appendChild(concButton);
 
     const email = document.createElement('a');
     email.className = "student-info";
