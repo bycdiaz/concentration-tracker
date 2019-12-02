@@ -182,7 +182,7 @@ function render(myStudents) {
     deleteButton.id = "delete"
     deleteButton.innerText = "Delete";
     deleteButton.addEventListener('click', () => {
-      student.innerHTML = '';
+      card.innerHTML = '';
     })
     student.appendChild(deleteButton);
   });
