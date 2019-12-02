@@ -1,10 +1,11 @@
 const studentContainer = document.querySelector('.students');
 
-const peterParker = new Student("Peter Parker", 2018, 17, "yes", "pp@aol.com")
-const enderWiggin = new Student("Ender Wiggin", 2015, 45,"yes","pwiggin@hotmail.com")
-const homerSimpson = new Student("Homer Simpson",2014,122,"no","chunkylover53@aol.com")
+// sample students
+// const peterParker = new Student("Peter Parker", 2018, 17, "yes", "pp@aol.com")
+// const enderWiggin = new Student("Ender Wiggin", 2015, 45,"yes","pwiggin@hotmail.com")
+// const homerSimpson = new Student("Homer Simpson",2014,122,"no","chunkylover53@aol.com")
 
-let myStudents = [peterParker,enderWiggin,homerSimpson];
+let myStudents = [];
 
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
   this.name = name
@@ -36,10 +37,8 @@ function addStudent() {
   form.onsubmit = () => {
     let newStudent = new Student(form.elements.name.value, form.elements.admitYear.value, form.elements.creditsEarned.value, form.elements.concentrationDeclared.value, form.elements.email.value);
     
-    console.log(newStudent);
-    alert(newStudent);
-
     myStudents.push(newStudent);
+    render(myStudents);
   }
 
 }
@@ -134,6 +133,7 @@ function render(myStudents) {
   studentContainer.innerHTML = '';
   createButton();
   createForm();
+  
   
   myStudents.forEach( function (element) {
     
