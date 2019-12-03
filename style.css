@@ -1,5 +1,26 @@
+/* main grid start */
+.students {
+  display: grid;
+}
+
+
+
+/* main grid end */
+
+/* header container start */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* header container end */
+
+
+/* card styling start */
 .card {
-  /* Add shadows to create the "card" effect */
+  /* shadow for card container */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
@@ -7,14 +28,19 @@
   margin: 10px;
 }
 
-/* On mouse-over, add a deeper shadow */
+/* deepends shadow effect on hover */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
+/* padding for elementsi n card */
 .student {
   padding: 2px 16px;
+}
+/* card styling end */
+
+#logo {
+  width: 25%;
 }
 
 #form {
