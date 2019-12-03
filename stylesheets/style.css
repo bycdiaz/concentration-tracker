@@ -3,14 +3,58 @@
   src: url("../stylesheets/fonts/FuturaCondensedBold.otf");
 }
 
-/* main grid start */
-.students {
+/* student container start */
+.student {
   display: grid;
+  grid-template-areas:
+  "name name"
+  "admityear admityear"
+  "credits credits"
+  "conclabel concbutton"
+  "emailLabel email"
+  "delete delete";
+}
+
+#output-name {
+  grid-area: name;
+}
+
+#output-admityear {
+  grid-area: admityear;
+}
+#output-credits {
+  grid-area: credits;
+}
+
+#output-conc-label {
+  grid-area: conclabel;
+}
+
+#output-concbutton {
+  grid-area: concbutton;
+}
+
+#output-label-email {
+  grid-area: emailLabel;
+}
+
+#output-email {
+  grid-area: email;
+}
+
+#delete {
+  grid-area: delete;
 }
 
 
+.student > p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  size: 1.1em;
+  line-height: 1.5em;
+}
 
-/* main grid end */
+/* student container end */
 
 /* header container start */
 

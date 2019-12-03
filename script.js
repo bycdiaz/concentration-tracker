@@ -5,9 +5,25 @@ const myStudents = [];
 addStudent({ 
   name: "Peter Parker",
   admitYear: 2018,
-  creditsEarned: 17,
+  creditsEarned: 96,
   concentrationDeclared: true,
   email: "pp@aol.com"
+});
+
+addStudent({ 
+  name: "Homer Simpson",
+  admitYear: 1974,
+  creditsEarned: 12,
+  concentrationDeclared: false,
+  email: "homer@aol.com"
+});
+
+addStudent({ 
+  name: "Ender Wiggin",
+  admitYear: 2012,
+  creditsEarned: 129,
+  concentrationDeclared: true,
+  email: "ewiggin@gmail.com"
 });
 
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
@@ -182,26 +198,31 @@ function render(myStudents) {
 
     const studentName = document.createElement('p');
     studentName.className = "student-info";
+    studentName.id = "output-name"
     studentName.innerText = `Name: ${element.name}`;
     student.appendChild(studentName);
 
     const admitYear = document.createElement('p')
     admitYear.className = "student-info";
+    admitYear.id = "output-admityear";
     admitYear.innerText = `Admit Year: ${element.admitYear}`;
     student.appendChild(admitYear);
 
     const creditsEarned = document.createElement('p');
     creditsEarned.className = "student-info";
+    creditsEarned.id = "output-credits";
     creditsEarned.innerText = `Credits Earned: ${element.creditsEarned}`;
     student.appendChild(creditsEarned);
 
     const concDeclared = document.createElement('p');
     concDeclared.className = "student-info";
+    concDeclared.id = "output-conc-label";
     concDeclared.innerText = "Concentration Declared?";
     student.appendChild(concDeclared);
 
     const concButton = document.createElement('button');
     concButton.className = "button";
+    concButton.id = "output-concbutton";
     concButton.innerText = element.concDeclared;
     concButton.addEventListener('click', () => {
       if (concButton.innerText === "true") {
@@ -212,8 +233,15 @@ function render(myStudents) {
     })
     student.appendChild(concButton);
 
+    const emailLabel = document.createElement('p');
+    emailLabel.className = "student-info";
+    emailLabel.id = "output-label-email";
+    emailLabel.innerText = "Email:";
+    student.appendChild(emailLabel);
+
     const email = document.createElement('a');
     email.className = "student-info";
+    email.id = "output-email";
     email.href = `mailto:${element.email}`
     email.innerText = element.email;
     student.appendChild(email);
