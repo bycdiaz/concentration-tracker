@@ -21,6 +21,7 @@ function Student(name,admitYear,creditsEarned,concDeclared,email) {
 function createButton(container) {
   const button = document.createElement('button');
   button.className = "button";
+  button.id = "new-student"
   button.innerText = "New Student";
   button.addEventListener('click', () => {
     // toggles view of form
@@ -61,6 +62,7 @@ function createForm() {
   // name label
   const nameLabel = document.createElement("label");
   nameLabel.setAttribute("for","name");
+  nameLabel.className = 'form-element';
   nameLabel.innerText = "Name:"
   form.appendChild(nameLabel);
 
@@ -74,6 +76,7 @@ function createForm() {
   // admit year label
   const admitYearLabel = document.createElement("label");
   admitYearLabel.setAttribute("for","admitYear");
+  admitYearLabel.className = 'form-element';
   admitYearLabel.innerText = "Admit Year:"
   form.appendChild(admitYearLabel);
 
@@ -87,6 +90,7 @@ function createForm() {
   // credits earned label
   const creditsEarnedLabel = document.createElement("label");
   creditsEarnedLabel.setAttribute("for","creditsEarned");
+  creditsEarnedLabel.className = 'form-element';
   creditsEarnedLabel.innerText = "Credits Earned:"
   form.appendChild(creditsEarnedLabel);
 
@@ -100,6 +104,7 @@ function createForm() {
   // concentration declared label
   const concentrationDeclaredLabel = document.createElement("label");
   concentrationDeclaredLabel.setAttribute("for","concentrationDeclared");
+  concentrationDeclaredLabel.className = 'form-element';
   concentrationDeclaredLabel.innerText = "Concentration Declared:"
   form.appendChild(concentrationDeclaredLabel);
 
@@ -121,6 +126,7 @@ function createForm() {
   // email label
   const emailLabel = document.createElement("label");
   emailLabel.setAttribute("for","email");
+  emailLabel.className = 'form-element';
   emailLabel.innerText = "Email:"
   form.appendChild(emailLabel);
 
@@ -134,6 +140,8 @@ function createForm() {
   // submit button
   const submit = document.createElement('input');
   submit.type = "submit";
+  submit.className = 'form-element';
+  submit.id = "submit";
   submit.value = "Add Student";
   submit.addEventListener('click', (event) => {
     event.preventDefault();
