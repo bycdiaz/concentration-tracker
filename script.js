@@ -1,21 +1,24 @@
 const studentContainer = document.querySelector('.students');
 
-// sample students
-const peterParker = new Student("Peter Parker",2018,17,true,"pp@aol.com")
-const enderWiggin = new Student("Ender Wiggin",2015,45,false,"pwiggin@hotmail.com")
-const homerSimpson = new Student("Homer Simpson",2014,122,false,"chunkylover53@aol.com")
+const myStudents = [];
 
-let myStudents = [peterParker, enderWiggin, homerSimpson];
+addStudent({ 
+  name: "Peter Parker",
+  admitYear: 2018,
+  creditsEarned: 17,
+  concentrationDeclared: true,
+  email: "pp@aol.com"
+});
 
 function Student(name,admitYear,creditsEarned,concDeclared,email) {
-  this.name = name
-  this.admitYear = parseInt(admitYear,10)
-  this.creditsEarned = parseInt(creditsEarned,10)
-  this.concDeclared = concDeclared.toString()  
-  this.email = email
+  this.name = name;
+  this.admitYear = Number(admitYear);
+  this.creditsEarned = Number(creditsEarned);
+  this.concDeclared = concDeclared.toString();  
+  this.email = email;
 }
 
-function createButton() {
+function createButton(container) {
   const button = document.createElement('button');
   button.className = "button";
   button.innerText = "New Student";
@@ -28,19 +31,21 @@ function createButton() {
       formView.style.display = "block";
     }
   })
-  studentContainer.appendChild(button);
+  container.appendChild(button);
 }
 
-function addStudent() {
-
-  let form = document.getElementById('form');
-  form.onsubmit = () => {
-    let newStudent = new Student(form.elements.name.value, form.elements.admitYear.value, form.elements.creditsEarned.value, form.elements.concentrationDeclared.value, form.elements.email.value);
+function addStudent(studentInfo) {
+  const newStudent = new Student(studentInfo.name, studentInfo.admitYear, studentInfo.creditsEarned, studentInfo.concentrationDeclared, studentInfo.email);
     
-    myStudents.push(newStudent);
-    render(myStudents);
-  }
+  myStudents.push(newStudent);
+  render(myStudents);
+}
 
+function myCreateElement(tag, className) {
+  const newElement = document.createElement(tag);
+  newElement.className = className;
+
+  return newElement;
 }
 
 function createForm() {
@@ -102,8 +107,8 @@ function createForm() {
   const concentrationDeclared = document.createElement('input');
   concentrationDeclared.className = 'form-element';
   concentrationDeclared.id = "concentrationDeclared";
-  concentrationDeclared.type = "button"
-  concentrationDeclared.value = "true"
+  concentrationDeclared.type = "button";
+  concentrationDeclared.value = true;
   concentrationDeclared.addEventListener('click', () => {
     if (concentrationDeclared.value === "true") {
       concentrationDeclared.value = "false"
@@ -130,8 +135,17 @@ function createForm() {
   const submit = document.createElement('input');
   submit.type = "submit";
   submit.value = "Add Student";
-  submit.addEventListener('click', () => {
-    addStudent();
+  submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    const newStudent = { 
+      name: name.value,
+      admitYear: admitYear.value,
+      creditsEarned: creditsEarned.value,
+      concentrationDeclared: concentrationDeclared.value,
+      email: email.value
+    }
+
+    addStudent(newStudent);
   })
   form.appendChild(submit);
 }
@@ -139,11 +153,11 @@ function createForm() {
 function render(myStudents) {
 
   studentContainer.innerHTML = '';
-  createButton();
+  createButton(studentContainer);
   createForm();
   
   
-  myStudents.forEach( function (element) {
+  myStudents.forEach( function (element,index) {
     
     // creates card
     const card = document.createElement('div');
@@ -202,7 +216,8 @@ function render(myStudents) {
     deleteButton.id = "delete"
     deleteButton.innerText = "Delete";
     deleteButton.addEventListener('click', () => {
-      card.innerHTML = '';
+      myStudents.splice(index,1)
+      return render(myStudents);
     })
     student.appendChild(deleteButton);
   });
