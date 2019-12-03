@@ -148,6 +148,7 @@ h1 {
   /* background-color: royalblue; */
   font-family: futuraBoldCondensed,arial,sans-s;
   color: #07294D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .form > input {
