@@ -87,6 +87,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
 }
 
 .header>* {
@@ -96,8 +97,9 @@
 h1 {
   font-family: futuraBoldCondensed;
   color: #07294D;
-  size: 36px;
+  /* size: 60px; */
   text-transform: uppercase;
+  font-size: x-large;
 }
 
 /* header container end */
