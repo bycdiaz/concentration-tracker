@@ -1,6 +1,6 @@
 ## Concentration Tracker
 
-Tool for tracking concentration declarations for current caseload of students.
+Tool for tracking concentration declarations for current caseload of students. Made with JavaScript and CSS. Also used the [Drexel University Website Design & Branding Standards](https://drexel.edu/identity/web/design-standards/) for styling.
 
 Based on [Library Project](https://www.theodinproject.com/courses/javascript/lessons/library) from [The Odin Project](https://www.theodinproject.com) curriculum.
 
